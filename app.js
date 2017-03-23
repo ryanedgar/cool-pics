@@ -1,3 +1,9 @@
+const ImageManager = require("./managers/ImageManager");
+const imageManager = new ImageManager();
+imageManager.getPhotos();
+//redditImageManager.savePhotos();
+
+/*
 ﻿const os = require("os");
 const Flickr = require("flickrapi");
 const https = require("https");
@@ -283,3 +289,4 @@ function forceCloseTimer() {
 	},
 	60 * 1000);
 }
+*/
