@@ -54,6 +54,7 @@ class RedditImageManager {
           resolve(this.photos);
         }, (err) => {
           console.error(err);
+          console.log("Promise error")
           reject([]);
         });
       }
