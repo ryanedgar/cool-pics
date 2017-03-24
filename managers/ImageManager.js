@@ -3,11 +3,13 @@ const fs = require("fs");
 const url = require("url");
 
 const RedditImageManager = require("./RedditImageManager");
+const FlickrImageManager = require("./FlickrImageManager");
 
 class ImageManager {
-  constructor(){
+  constructor(flickrApiKey, flickrApiSecret, flickrImageCount=100){
     this.clearPhotos();
     this.redditImageManager = new RedditImageManager();
+    this.flickrImageManager = new FlickrImageManager(flickrApiKey, flickrApiSecret, flickrImageCount);
     this.photos = [];
     this.totalPics = 0;
     this.picsComplete = 0;
@@ -16,9 +18,11 @@ class ImageManager {
 
   getPhotos(){
     let redditImages = this.redditImageManager.getRedditPics();
-    redditImages.then((pics) => {
-      console.log(pics);
-      this.photos = pics;
+    let flickrImages = this.flickrImageManager.getFlickrPics();
+
+    Promise.all([redditImages, flickrImages])
+    .then((results) => {
+      this.photos = [...results[0], ...results[1]];
       this.totalPics = this.photos.length;
       try{
         this.savePhotos();
@@ -26,9 +30,9 @@ class ImageManager {
       catch(e){
         console.error(e);
       }
-    },
-    (err) => {
-      console.error(err);
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
