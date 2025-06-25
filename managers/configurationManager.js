@@ -14,7 +14,6 @@ class ConfigurationManager {
     }
 
     return new Promise((resolve, reject) => {
-      console.log(this.filePath);
       try{
         fs.readFile(this.filePath, {encoding: 'utf-8'}, (err, data) => {
           if (err) reject(defaultData);

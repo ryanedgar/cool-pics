@@ -1,29 +1,30 @@
 {
-  "name": "cool-pics",
-  "version": "0.0.1",
-  "description": "Interestingness",
-  "main": "app.js",
-  "author": "ryan.edgar",
-  "dependencies": {
-    "flickrapi": "^0.6.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ryanedgar/cool-pics.git"
-  },
-  "keywords": [
-    "Cool",
-    "Pics",
-    "Interestingness"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ryanedgar/cool-pics/issues"
-  },
-  "homepage": "https://github.com/ryanedgar/cool-pics#readme"
+    "name": "cool-pics",
+    "version": "0.0.1",
+    "description": "Interestingness",
+    "main": "index.mjs",
+    "author": "ryan.edgar",
+    "dependencies": {
+        "bottleneck": "^2.19.5",
+        "flickrapi": "^0.6.0",
+        "terminal-kit": "^1.17.11"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.mjs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ryanedgar/cool-pics.git"
+    },
+    "keywords": [
+        "Cool",
+        "Pics",
+        "Interestingness"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ryanedgar/cool-pics/issues"
+    },
+    "homepage": "https://github.com/ryanedgar/cool-pics#readme"
 }
